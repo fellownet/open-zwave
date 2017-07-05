@@ -149,7 +149,7 @@ void OnNotification
 			NodeInfo* nodeInfo = new NodeInfo();
 			nodeInfo->m_homeId = _notification->GetHomeId();
 			nodeInfo->m_nodeId = _notification->GetNodeId();
-			nodeInfo->m_polled = false;		
+			nodeInfo->m_polled = false;
 			g_nodes.push_back( nodeInfo );
 			break;
 		}
@@ -243,7 +243,7 @@ int main( int argc, char* argv[] )
 
 	// Create the OpenZWave Manager.
 	// The first argument is the path to the config files (where the manufacturer_specific.xml file is located
-	// The second argument is the path for saved Z-Wave network state and the log file.  If you leave it NULL 
+	// The second argument is the path for saved Z-Wave network state and the log file.  If you leave it NULL
 	// the log file will appear in the program's working directory.
 	Options::Create( "../../../../../config/", "", "" );
 	Options::Get()->AddOptionInt( "SaveLogLevel", LogLevel_Detail );
@@ -268,14 +268,13 @@ int main( int argc, char* argv[] )
 	string port = "\\\\.\\COM6";
 
 	Manager::Get()->AddDriver( ( argc > 1 ) ? argv[1] : port );
-	//Manager::Get()->AddDriver( "HID Controller", Driver::ControllerInterface_Hid );
 
 	// Now we just wait for either the AwakeNodesQueried or AllNodesQueried notification,
 	// then write out the config file.
 	// In a normal app, we would be handling notifications and building a UI for the user.
 
-	// Since the configuration file contains command class information that is only 
-	// known after the nodes on the network are queried, wait until all of the nodes 
+	// Since the configuration file contains command class information that is only
+	// known after the nodes on the network are queried, wait until all of the nodes
 	// on the network have been queried (at least the "listening" ones) before
 	// writing the configuration file.  (Maybe write again after sleeping nodes have
 	// been queried as well.)
@@ -290,7 +289,7 @@ int main( int argc, char* argv[] )
 		Manager::Get()->WriteConfig( g_homeId );
 
 		// The section below demonstrates setting up polling for a variable.  In this simple
-		// example, it has been hardwired to poll COMMAND_CLASS_BASIC on the each node that 
+		// example, it has been hardwired to poll COMMAND_CLASS_BASIC on the each node that
 		// supports this setting.
 		EnterCriticalSection( &g_criticalSection );
 		for( list<NodeInfo*>::iterator it = g_nodes.begin(); it != g_nodes.end(); ++it )
@@ -314,8 +313,8 @@ int main( int argc, char* argv[] )
 
 		// If we want to access our NodeInfo list, that has been built from all the
 		// notification callbacks we received from the library, we have to do so
-		// from inside a Critical Section.  This is because the callbacks occur on other 
-		// threads, and we cannot risk the list being changed while we are using it.  
+		// from inside a Critical Section.  This is because the callbacks occur on other
+		// threads, and we cannot risk the list being changed while we are using it.
 		// We must hold the critical section for as short a time as possible, to avoid
 		// stalling the OpenZWave drivers.
 		// At this point, the program just waits for 3 minutes (to demonstrate polling),

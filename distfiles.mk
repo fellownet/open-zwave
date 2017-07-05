@@ -659,8 +659,6 @@ DISTFILES =	.gitignore \
 	cpp/src/platform/Event.h \
 	cpp/src/platform/FileOps.cpp \
 	cpp/src/platform/FileOps.h \
-	cpp/src/platform/HidController.cpp \
-	cpp/src/platform/HidController.h \
 	cpp/src/platform/Log.cpp \
 	cpp/src/platform/Log.h \
 	cpp/src/platform/Mutex.cpp \
@@ -696,8 +694,6 @@ DISTFILES =	.gitignore \
 	cpp/src/platform/winRT/EventImpl.h \
 	cpp/src/platform/winRT/FileOpsImpl.cpp \
 	cpp/src/platform/winRT/FileOpsImpl.h \
-	cpp/src/platform/winRT/HidControllerWinRT.cpp \
-	cpp/src/platform/winRT/HidControllerWinRT.h \
 	cpp/src/platform/winRT/LogImpl.cpp \
 	cpp/src/platform/winRT/LogImpl.h \
 	cpp/src/platform/winRT/MutexImpl.cpp \
