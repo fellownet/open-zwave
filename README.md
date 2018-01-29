@@ -5,13 +5,13 @@
 
 Steps to bring the adjustments branch up to date with the open-zwave github repository:
 
-'''
+```
 git checkout -b micasa-adjustments origin/micasa-adjustments
 git remote add upstream https://github.com/OpenZWave/open-zwave.git
 git fetch upstream master
 git merge upstream/master
 git push origin micasa-adjustments
-'''
+```
 
 Our goal is to create free software library that interfaces with selected Z-Wave PC controllers, allowing anyone to create applications that manipulate and respond to devices on a Z-Wave network, without requiring in-depth knowledge of the Z-Wave protocol.
 
